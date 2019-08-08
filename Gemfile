@@ -27,4 +27,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  # Checck what these 3 gems do
+  gem 'capybara'
+  gem 'webdrivers', '~> 4.0'
+  gem 'launchy'
 end
