@@ -1,26 +1,22 @@
 <div class="container">
-
   <%= form_for(@list) do |f| %>
-
     <div class="form-inputs">
       <%= f.text_field :title, placeholder: "Eg. Chores" %>
       <%= f.fields_for :tasks do |c| %>
-				<%= c.text_field :description, placeholder: "Eg. Vacuum my room" %>
+        <%= c.text_field :description, placeholder: "Eg. Vacuum my room" %>
 			<% end %>
     </div>
 
     <% if current_page?(new_list_path) %>
       <div class="form-actions">
-        <%= f.button "Add" %>
+        <%= f.button "Add list" %>
       </div>
     <% else %>
       <div class="form-actions">
         <%= f.button "Edit" %>
       </div>
     <% end %>
-
   <% end %>
-
 </div>
 
 

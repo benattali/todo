@@ -17,7 +17,7 @@ class ListsController < ApplicationController
   def create
   	@list = List.new(list_params)
   	if @list.save!
-  		@task = Task.new(description: params[:list][:tasks][:description])
+      @task = Task.new(description: params[:list][:tasks][:description])
   		@task.list_id = @list.id
   		@task.save!
   		redirect_to list_path(@list), notice: "#{@list.title} was successfully created."
