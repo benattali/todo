@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-	before_action :set_island, only: [:show, :edit, :update, :destroy]
+	before_action :set_list, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
@@ -7,6 +7,9 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list.tasks.each do |task|
+      task.status ? @done = "[x]" : @done = "[ ]"
+    end
   end
 
   def new
@@ -49,7 +52,12 @@ class ListsController < ApplicationController
     params.require(:list).permit(:title, :task)
   end
 
-  def set_island
+  def set_list
     @list = List.find(params[:id])
   end
+
+  # def done!
+  #   @task = Task.find()
+  #   @task.status = true
+  # end
 end
