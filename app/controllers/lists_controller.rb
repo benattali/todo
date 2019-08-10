@@ -7,9 +7,6 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list.tasks.each do |task|
-      task.status ? @done = "[x]" : @done = "[ ]"
-    end
   end
 
   def new
@@ -55,9 +52,4 @@ class ListsController < ApplicationController
   def set_list
     @list = List.find(params[:id])
   end
-
-  # def done!
-  #   @task = Task.find()
-  #   @task.status = true
-  # end
 end
