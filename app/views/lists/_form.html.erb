@@ -4,7 +4,7 @@
       <%= f.text_field :title, placeholder: "Eg. Chores" %>
       <%= f.fields_for :tasks do |c| %>
         <%= c.text_field :description, multiple: true, placeholder: "Eg. Vacuum my room" %>
-        <%= c.text_field :description, multiple: true, placeholder: "Eg. Vacuum my room" %>
+        <%= button_to "+" %>
       <% end %>
     </div>
 

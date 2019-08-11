@@ -46,10 +46,14 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
+  def add_task
+    puts "test"
+  end
+
   private
 
   def list_params
-    params.require(:list).permit(:title, tasks_attributes: [:id, :description, :_destroy])
+    params.require(:list).permit(:title)
   end
 
   def set_list

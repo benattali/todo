@@ -3,8 +3,7 @@
 	<p> 
 		<%= "#{index+1}. " %>
 		<%= list.title %>
-		<%= link_to "Edit", edit_list_path(list) %>
-		<%= link_to "X", list_path(list), method: :delete %>
+		<%= link_to "delete", list_path(list), method: :delete %>
 	</p>
 	<% end %>
 <% end %>
