@@ -1,5 +1,6 @@
 <% @list.tasks.each do |task| %>
-	<h5> [ ] <%= task.description %> --- <%= button_to "Done" %> </h5>
+	<h5 class="status"> [ ] <%= task.description %> </h5>
+	<button class="done"> Done </button>
 <% end %>
 
 <%= link_to "Back", root_path %>

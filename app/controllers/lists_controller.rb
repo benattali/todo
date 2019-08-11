@@ -46,10 +46,6 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
-  def add_task
-    
-  end
-
   private
 
   def list_params
