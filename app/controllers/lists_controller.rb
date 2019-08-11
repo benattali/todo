@@ -16,10 +16,13 @@ class ListsController < ApplicationController
 
   def create
   	@list = List.new(list_params)
+    @allTasks = params[:list][:tasks][:description]
   	if @list.save!
-      @task = Task.new(description: params[:list][:tasks][:description])
-  		@task.list_id = @list.id
-  		@task.save!
+      @allTasks.each do |task|
+        @task = Task.new(description: task)
+        @task.list_id = @list.id
+        @task.save!
+      end
   		redirect_to list_path(@list), notice: "#{@list.title} was successfully created."
   	else
   		render :new
