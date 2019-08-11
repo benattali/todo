@@ -1,24 +1,13 @@
-<div class="container">
-  <%= form_for(@list) do |f| %>
-    <div class="form-inputs">
-      <%= f.text_field :title, placeholder: "Eg. Chores" %>
-      <%= f.fields_for :tasks do |c| %>
-        <%= c.text_field :description, multiple: true, placeholder: "Eg. Vacuum my room" %>
-        <%= button_to "+" %>
-      <% end %>
-    </div>
-
-    <% if current_page?(new_list_path) %>
-      <div class="form-actions">
-        <%= f.button "Add list" %>
-      </div>
-    <% else %>
-      <div class="form-actions">
-        <%= f.button "Edit" %>
-      </div>
+<%= simple_form_for @list do |f| %>
+  <%= f.input :title %>
+  <h3>Tasks</h3>
+  <div id='tasks'>
+    <%= f.simple_fields_for :tasks do |task| %>
+      <%= render 'task_fields', :f => task %>
     <% end %>
-  <% end %>
-</div>
-
-
-    
+    <div class='links'>
+      <%= link_to_add_association 'add task', f, :tasks %>
+    </div>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>

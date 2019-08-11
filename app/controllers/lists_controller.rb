@@ -16,13 +16,13 @@ class ListsController < ApplicationController
 
   def create
   	@list = List.new(list_params)
-    @allTasks = params[:list][:tasks][:description]
+    @tasks = []
+    @allTasks = params[:list][:tasks_attributes].values
+    @allTasks.each do |task|
+      @tasks << Task.new(description: task[:description], list: @list)
+    end
+    @list.tasks = @tasks
   	if @list.save!
-      @allTasks.each do |task|
-        @task = Task.new(description: task)
-        @task.list_id = @list.id
-        @task.save!
-      end
   		redirect_to list_path(@list), notice: "#{@list.title} was successfully created."
   	else
   		render :new
@@ -47,13 +47,13 @@ class ListsController < ApplicationController
   end
 
   def add_task
-    puts "test"
+    
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, tasks_attributes: [:id, :description, :_destroy])
   end
 
   def set_list
