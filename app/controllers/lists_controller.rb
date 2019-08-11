@@ -46,7 +46,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, :task)
+    params.require(:list).permit(:title, tasks_attributes: [:id, :description, :_destroy])
   end
 
   def set_list
