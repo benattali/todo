@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :lists do
-  	resources :tasks
+  resources :lists, only: [:index, :show, :new, :create, :destroy] do
   	member do
   		get :done
   		get :undone

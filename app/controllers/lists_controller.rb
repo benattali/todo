@@ -4,7 +4,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
-    @lists = List.order(:title)
+    @lists = List.order(:title) # this makes the lists appear in alphabetical order
   end
 
   def show
@@ -30,26 +30,14 @@ class ListsController < ApplicationController
     end
   end
 
-  def edit
-    @task = @list.tasks
-  end
-
-  def update
-    if @list.update(list_params)
-      redirect_to list_path(@list), notice: "#{@list.title} was successfully updated."
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @list.destroy
     redirect_to root_path
   end
 
   def done
-    @task = Task.find(params[:id])
-    @list = List.find(@task.list_id)
+    @task = Task.find(params[:id]) # find the correct task
+    @list = List.find(@task.list_id) # find which list this task is connected to
     @task.status = true
     redirect_to list_path(@list) if @task.save!
   end
