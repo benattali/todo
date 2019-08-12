@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-	before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
@@ -10,31 +10,31 @@ class ListsController < ApplicationController
   end
 
   def new
-  	@list = List.new
-  	@task = Task.new
+    @list = List.new
+    @task = Task.new
   end
 
   def create
-  	@list = List.new(list_params)
+    @list = List.new(list_params)
     @tasks = []
     @allTasks = params[:list][:tasks_attributes].values
     @allTasks.each do |task|
       @tasks << Task.new(description: task[:description], list: @list)
     end
     @list.tasks = @tasks
-  	if @list.save!
-  		redirect_to list_path(@list), notice: "#{@list.title} was successfully created."
-  	else
-  		render :new
-  	end
+    if @list.save!
+      redirect_to list_path(@list), notice: "#{@list.title} was successfully created."
+    else
+      render :new
+    end
   end
 
   def edit
-  	@task = @list.tasks
+    @task = @list.tasks
   end
 
   def update
-     if @list.update(list_params)
+    if @list.update(list_params)
       redirect_to list_path(@list), notice: "#{@list.title} was successfully updated."
     else
       render :edit
@@ -42,8 +42,15 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	@list.destroy
+    @list.destroy
     redirect_to root_path
+  end
+
+  def done
+    @task = Task.find(params[:id])
+    @list = List.find(@task.list_id)
+    @task.status = true
+    redirect_to list_path(@list) if @task.save!
   end
 
   private
