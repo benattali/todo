@@ -53,6 +53,13 @@ class ListsController < ApplicationController
     redirect_to list_path(@list) if @task.save!
   end
 
+  def undone
+    @task = Task.find(params[:id])
+    @list = List.find(@task.list_id)
+    @task.status = false
+    redirect_to list_path(@list) if @task.save!
+  end
+
   private
 
   def list_params

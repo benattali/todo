@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   	resources :tasks
   	member do
   		get :done
+  		get :undone
   	end
   end
 
