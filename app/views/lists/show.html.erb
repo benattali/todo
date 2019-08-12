@@ -2,10 +2,8 @@
 	<% if task.status? %>
 		<h5> [✔] <%= task.description %> </h5>
 	<% else %>
-		<h5> [ ] <%= task.description %> </h5>
+		<h5> [ ] <%= task.description %> <%= link_to "done", done_list_path(task), :task => task.id %> </h5>
 	<% end %>
-	<!-- <button class="done"> Done </button> -->
-	<%= link_to "done", done_list_path(task), :task => task.id %>
 <% end %>
 
 <%= link_to "Back", root_path %>
