@@ -1,3 +1,4 @@
+
 <% @list.tasks.each do |task| %>
 	<% if task.status? %>
 		<h5> [✔] <%= task.description %> <%= link_to "undone", undone_list_path(task), :task => task.id %> </h5>
