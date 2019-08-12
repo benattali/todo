@@ -4,6 +4,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @lists = List.order(:title)
   end
 
   def show
