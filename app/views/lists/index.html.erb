@@ -1,11 +1,15 @@
-<% @lists.each_with_index do |list, index| %>
-	<%= link_to list_path(list) do  %>
-	<p> 
-		<%= "#{index+1}. " %>
-		<%= list.title %>
-		<%= link_to "delete", list_path(list), method: :delete %>
-	</p>
+<div class="container-margins">
+	<% @lists.each_with_index do |list, index| %>
+		<%= link_to list_path(list) do  %>
+		<p> 
+			<%= "#{index+1}. " %>
+			<%= list.title %>
+			<%= link_to list_path(list), method: :delete do %>
+				 <i class="far fa-trash-alt"></i>
+			<% end %>
+		</p>
+		<% end %>
 	<% end %>
-<% end %>
 
-<%= link_to "Create a list", new_list_path(@list) %>
+	<%= link_to "Create a list", new_list_path(@list) %>
+</div>
