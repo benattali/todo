@@ -1,15 +1,20 @@
 <div class="container-margins">
-	<% @lists.each_with_index do |list, index| %>
-		<%= link_to list_path(list) do  %>
-		<p> 
-			<%= "#{index+1}. " %>
-			<%= list.title %>
-			<%= link_to list_path(list), method: :delete do %>
-				 <i class="far fa-trash-alt"></i>
-			<% end %>
-		</p>
+	<div class="headers-box">
+		<h1> To do lists </h1>
+	</div>
+	<div class="content">
+		<% @lists.each_with_index do |list, index| %>
+			<p> 
+				<%= "#{index+1}. " %>
+				<%= link_to list_path(list) do  %>
+					<%= list.title %>
+				<% end %>
+				<%= link_to list_path(list), method: :delete do %>
+					<i class="far fa-trash-alt"></i>
+				<% end %>
+			</p>
 		<% end %>
-	<% end %>
+	</div>
 
-	<%= link_to "Create a list", new_list_path(@list) %>
+	<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
 </div>

@@ -1,4 +1,14 @@
 body {
-	background-image: url("paper.jpg");
+	background-image: linear-gradient(0deg, rgba(255,255,255,0.48) 0%, rgba(249,248,203,0.82) 82%), url("paper.jpg");
 	background-size: cover;
+	color: black;
+	font-weight: 900;
+	color: rgb(59,59,59);
+}
+
+a {
+	color: rgb(59,59,59);
+	&:hover {
+		text-decoration: none;
+	}
 }

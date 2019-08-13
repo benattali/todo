@@ -1,5 +1,28 @@
 .container-margins {
-	margin: 10% 10%;
-	padding: 2%;
+	margin: 0 10vw;
 	word-break: break-all;
+	min-height: 100vh;
+	padding-top: 8%;
+}
+
+.headers-box {
+	height: auto;
+	background-color: rgba(136, 201, 224, 0.6);
+	margin-bottom: 3%;
+	// vertical-align: middle;
+	color: $gray;
+	font-size: 32px;
+	padding: 6px;
+	transform: skewX(-10deg) rotate(4deg);
+	display: inline-block;
+	border-radius: 2px;
+}
+
+h1 {
+	transform: rotate(-4deg);
+	margin: 0;
+}
+
+.content {
+	margin-bottom: 32px;
 }
