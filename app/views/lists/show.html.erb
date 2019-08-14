@@ -1,4 +1,7 @@
 <div class="container-margins">
+	<div class="headers-box">
+		<h1> <%= @list.title %> </h1>
+	</div>
 	<% @list.tasks.each do |task| %>
 		<% if task.status? %>
 			<h5> [✔] <del> <%= task.description %> </del>
