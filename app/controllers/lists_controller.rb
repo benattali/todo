@@ -1,9 +1,10 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @lists = List.where(user: current_user).order(:title)
+    # @lists = List.where(user: current_user).order(:title)
+    @lists = policy_scope(List)
   end
 
   def show
@@ -11,11 +12,13 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    authorize @list
     @task = Task.new
   end
 
   def create
     @list = List.new(list_params)
+    authorize @list
     @list.user = current_user
     @tasks = []
     @allTasks = params[:list][:tasks_attributes].values
@@ -39,6 +42,7 @@ class ListsController < ApplicationController
     @task = Task.find(params[:id]) # find the correct task
     @list = List.find(@task.list_id) # find which list this task is connected to
     @task.status = true
+    authorize @list
     redirect_to list_path(@list) if @task.save!
   end
 
@@ -46,6 +50,7 @@ class ListsController < ApplicationController
     @task = Task.find(params[:id])
     @list = List.find(@task.list_id)
     @task.status = false
+    authorize @list
     redirect_to list_path(@list) if @task.save!
   end
 
@@ -57,5 +62,6 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+    authorize @list
   end
 end

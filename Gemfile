@@ -9,7 +9,8 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'jquery-rails'
-gem "cocoon"
+gem 'cocoon'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

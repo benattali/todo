@@ -21,8 +21,10 @@
 							<%= link_to list_path(list) do  %>
 								<%= list.title %>
 							<% end %>
-							<%= link_to list_path(list), method: :delete do %>
-								<i class="far fa-trash-alt"></i>
+							<% if policy(List).destroy? %>
+								<%= link_to list_path(list), method: :delete do %>
+									<i class="far fa-trash-alt"></i>
+								<% end %>
 							<% end %>
 						</p>
 					<% end %>
@@ -30,7 +32,9 @@
 		<% end %>		
 
 	<% if user_signed_in? %>
-		<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+		<% if policy(List).create? %>
+			<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+		<% end %>
 	<% end %>
 
 </div>
