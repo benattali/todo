@@ -1,6 +1,12 @@
 puts "Destroying old database..."
-
+User.destroy_all
 List.destroy_all
+
+puts "Creating a user"
+
+ben = User.create(email: "ben@email.com", password: "123456")
+
+puts "Finished creating a user"
 
 puts "Creating 3 lists"
 
