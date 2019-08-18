@@ -1,20 +1,36 @@
 <div class="container-margins">
-	<div class="headers-box">
-		<h1> To do lists </h1>
-	</div>
-	<div class="content">
-		<% @lists.each_with_index do |list, index| %>
-			<p> 
-				<%= "#{index+1}. " %>
-				<%= link_to list_path(list) do  %>
-					<%= list.title %>
-				<% end %>
-				<%= link_to list_path(list), method: :delete do %>
-					<i class="far fa-trash-alt"></i>
-				<% end %>
-			</p>
-		<% end %>
-	</div>
+		<div class="headers-box">
+			<h1> To do lists </h1>
+		</div>
 
-	<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+		<% if !user_signed_in? %>
+			<div class="content">
+				<p> Looks like you're not signed in. </p>
+				<p> Once you sign in you can start creaing lists. </p>
+			</div>
+		<% elsif @lists.empty? %>
+			<div class="content">
+				<p> You don't have any to do lists. </p>
+				<p> If there is something you need to do you can create a new list </p>
+			</div>
+		<% else %>
+			<div class="content">
+				<% @lists.each_with_index do |list, index| %>
+						<p> 
+							<%= "#{index+1}. " %>
+							<%= link_to list_path(list) do  %>
+								<%= list.title %>
+							<% end %>
+							<%= link_to list_path(list), method: :delete do %>
+								<i class="far fa-trash-alt"></i>
+							<% end %>
+						</p>
+					<% end %>
+			</div>
+		<% end %>		
+
+	<% if user_signed_in? %>
+		<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+	<% end %>
+
 </div>

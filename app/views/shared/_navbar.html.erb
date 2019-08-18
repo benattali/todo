@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "Home", root_path, class: "navbar-brand"%>
+  <%= link_to "All lists", root_path, class: "navbar-brand"%>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,11 @@
         <% if !user_signed_in? %>
           <%= link_to  "Sign in", new_user_session_path, class: "nav-link" %>
         <% else %>
+          <li class="nav-item">
+            <div class="nav-link">
+              <%= current_user.email %>
+            </div>
+          </li>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         <% end %>
       </li>

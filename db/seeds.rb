@@ -3,15 +3,15 @@ User.destroy_all
 
 puts "Creating a user"
 
-ben = User.create(email: "ben@email.com", password: "123456", password_confirmation: "123456")
+user = User.create(email: "user@email.com", password: "123456", password_confirmation: "123456")
 
 puts "Finished creating a user"
 
 puts "Creating 3 lists"
 
-chores = List.create(title: "Chores", user: ben)
-entertainment = List.create(title: "Entertainment", user: ben)
-random = List.create(title: "Random", user: ben)
+chores = List.create(title: "Chores", user: user)
+entertainment = List.create(title: "Entertainment", user: user)
+random = List.create(title: "Random", user: user)
 
 puts "Finished creating lists"
 

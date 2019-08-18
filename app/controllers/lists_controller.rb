@@ -1,10 +1,9 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @lists = List.all
-    @lists = List.order(:title) # this makes the lists appear in alphabetical order
+    @lists = List.where(user: current_user).order(:title)
   end
 
   def show
@@ -17,6 +16,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.user = current_user
     @tasks = []
     @allTasks = params[:list][:tasks_attributes].values
     @allTasks.each do |task|
