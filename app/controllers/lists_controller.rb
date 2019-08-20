@@ -44,6 +44,7 @@ class ListsController < ApplicationController
     @task = Task.find(params[:id]) # find the correct task
     @list = List.find(@task.list_id) # find which list this task is connected to
     @task.status = true
+    @task.save
     authorize @list
     respond_to do |format|
       format.html { redirect_to list_path(@list) if @task.save! }
@@ -55,6 +56,7 @@ class ListsController < ApplicationController
     @task = Task.find(params[:id])
     @list = List.find(@task.list_id)
     @task.status = false
+    @task.save
     authorize @list
     respond_to do |format|
       format.html { redirect_to list_path(@list) if @task.save! }
