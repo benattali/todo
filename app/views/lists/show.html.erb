@@ -3,19 +3,7 @@
 		<h1> <%= @list.title %> </h1>
 	</div>
 	<% @list.tasks.each do |task| %>
-		<% if task.status? %>
-			<h5> [✔] <del> <%= task.description %> </del>
-				<% if policy(List).undone? %>
-					<%= render 'undone', task: task %>
-				<% end %>
-			</h5>
-		<% else %>
-			<h5> [ ] <%= task.description %>
-				<% if policy(List).done? %>
-					<%= render 'done', task: task %>
-				<% end %>
-			</h5>
-		<% end %>
+		<%= render 'show', task: task %>
 	<% end %>
 
 	<%= link_to "Back", root_path %>

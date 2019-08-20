@@ -45,11 +45,10 @@ class ListsController < ApplicationController
     @list = List.find(@task.list_id) # find which list this task is connected to
     @task.status = true
     authorize @list
-    redirect_to list_path(@list) if @task.save!
-    # respond_to do |format|
-    #   format.html { redirect_to list_path(@list) if @task.save! }
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html { redirect_to list_path(@list) if @task.save! }
+      format.js
+    end
   end
 
   def undone
@@ -57,11 +56,10 @@ class ListsController < ApplicationController
     @list = List.find(@task.list_id)
     @task.status = false
     authorize @list
-    redirect_to list_path(@list) if @task.save!
-    # respond_to do |format|
-    #   format.html { redirect_to list_path(@list) if @task.save! }
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html { redirect_to list_path(@list) if @task.save! }
+      format.js
+    end
   end
 
   private

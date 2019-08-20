@@ -1,0 +1,6 @@
+function taskDone() {
+	let done = document.querySelector("[data-task-id='<%= @task.id %>']");
+	done.innerHTML = '<%= j render "show", task: @task %>'
+}
+
+taskDone();

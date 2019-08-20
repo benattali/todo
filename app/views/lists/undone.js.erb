@@ -1,0 +1,6 @@
+function taskUnDone() {
+	let undone = document.querySelector("[data-task-id='<%= @task.id %>']");
+	undone.innerHTML = '<%= j render "show", task: @task %>'
+}
+
+taskUnDone();
