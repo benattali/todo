@@ -5,6 +5,10 @@ class ListsController < ApplicationController
   def index
     # @lists = List.where(user: current_user).order(:title)
     @lists = policy_scope(List)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -35,7 +39,10 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   def done

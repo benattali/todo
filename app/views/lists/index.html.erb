@@ -15,19 +15,7 @@
 			</div>
 		<% else %>
 			<div class="content">
-				<% @lists.each_with_index do |list, index| %>
-						<p> 
-							<%= "#{index+1}. " %>
-							<%= link_to list_path(list) do  %>
-								<%= list.title %>
-							<% end %>
-							<% if policy(List).destroy? %>
-								<%= link_to list_path(list), method: :delete do %>
-									<i class="far fa-trash-alt"></i>
-								<% end %>
-							<% end %>
-						</p>
-					<% end %>
+				<%= render 'list_index', lists: @lists  %>
 			</div>
 		<% end %>		
 

@@ -1,0 +1,13 @@
+<% lists.each_with_index do |list, index| %>
+	<p data-list-id= "<%= list.id %>"> 
+		<%= "#{index+1}. " %>
+		<%= link_to list_path(list) do  %>
+			<%= list.title %>
+		<% end %>
+		<% if policy(List).destroy? %>
+			<%= link_to list_path(list), method: :delete, remote: true do %>
+				<i class="far fa-trash-alt"></i>
+		<% end %>
+		<% end %>
+	</p>
+<% end %>
