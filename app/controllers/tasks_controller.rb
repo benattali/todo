@@ -5,16 +5,6 @@ class TasksController < ApplicationController
   	@task = Task.new
   end
 
-  def create
-  	@task = Task.new(task_params)
-  	@task.list = @list
-  	if @task.save
-  		redirect_to list_path(@list)
-  	else
-  		render :new
-  	end
-  end
-
   private
 
   def set_list

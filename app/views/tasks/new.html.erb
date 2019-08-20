@@ -1,9 +1,11 @@
-<%= simple_form_for [@list, @task] do |f| %>
-	<div class="form-inputs">
-		<%= f.input :description %>
-	</div>
-
-	<div class="form-actions">
-		<%= f.button :submit, value: "Add task" %>
-	</div>
+<%= simple_form_for @list do |f| %>
+	<div id='tasks'>
+    <%= f.simple_fields_for :tasks do |task| %>
+      <%= render 'task_fields', :f => task %>
+    <% end %>
+   	<div class='links'>
+   		<%= link_to_add_association 'add task', f, :tasks %>
+   	</div>
+  </div>
+  <%= f.submit 'Save' %>
 <% end %>
