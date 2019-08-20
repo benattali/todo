@@ -3,12 +3,7 @@ class ListsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    # @lists = List.where(user: current_user).order(:title)
     @lists = policy_scope(List)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def show
@@ -51,6 +46,10 @@ class ListsController < ApplicationController
     @task.status = true
     authorize @list
     redirect_to list_path(@list) if @task.save!
+    # respond_to do |format|
+    #   format.html { redirect_to list_path(@list) if @task.save! }
+    #   format.js
+    # end
   end
 
   def undone
@@ -59,6 +58,10 @@ class ListsController < ApplicationController
     @task.status = false
     authorize @list
     redirect_to list_path(@list) if @task.save!
+    # respond_to do |format|
+    #   format.html { redirect_to list_path(@list) if @task.save! }
+    #   format.js
+    # end
   end
 
   private

@@ -6,19 +6,15 @@
 		<% if task.status? %>
 			<h5> [✔] <del> <%= task.description %> </del>
 				<% if policy(List).undone? %>
-					<%= link_to undone_list_path(task), :task => task.id do %>
-					<i class="fas fa-undo-alt"></i>
+					<%= render 'undone', task: task %>
 				<% end %>
-			<% end %>
 			</h5>
 		<% else %>
 			<h5> [ ] <%= task.description %>
 				<% if policy(List).done? %>
-					<%= link_to done_list_path(task), :task => task.id do %>
-						<i class="far fa-check-circle"></i>	
-					<% end %>
+					<%= render 'done', task: task %>
 				<% end %>
-				</h5>
+			</h5>
 		<% end %>
 	<% end %>
 
