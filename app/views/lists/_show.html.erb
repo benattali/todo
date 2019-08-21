@@ -1,13 +1,13 @@
 <span data-task-id= "<%= task.id %>">
 	<% if task.status? %>
 		<h5> [✔] <del> <%= task.description %> </del>
-			<% if policy(List).undone? %>
+			<% if policy(@list).undone? %>
 				<%= render 'undone', task: task %>
 			<% end %>
 		</h5>
 	<% else %>
 		<h5> [ ] <%= task.description %>
-			<% if policy(List).done? %>
+			<% if policy(@list).done? %>
 				<%= render 'done', task: task %>
 			<% end %>
 		</h5>

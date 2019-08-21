@@ -4,7 +4,7 @@
 		<%= link_to list_path(list) do  %>
 			<%= list.title %>
 		<% end %>
-		<% if policy(List).destroy? %>
+		<% if policy(list).destroy? %>
 			<%= link_to list_path(list), method: :delete, remote: true do %>
 				<i class="far fa-trash-alt"></i>
 		<% end %>

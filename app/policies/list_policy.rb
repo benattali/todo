@@ -1,36 +1,32 @@
 class ListPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      # scope.all
       scope.where(user: user).order(:id)
     end
   end
 
   def show?
-    true
+    record.user == user
   end
 
   def update?
-    true
+    record.user == user
   end
 
   def create?
+    # record.user == user
     true
   end
 
   def destroy?
-    # record.user == user
-    true
+    record.user == user
   end
 
   def done?
-    # record.user == user
-    true
+    record.user == user
   end
 
   def undone?
-    # record.user == user
-    true
+    record.user == user
   end
-
 end

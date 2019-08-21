@@ -1,12 +1,16 @@
 <div class="container-margins">
-	<div class="headers-box">
-		<h1> <%= @list.title %> </h1>
-	</div>
-	<% @list.tasks.each do |task| %>
-		<%= render 'show', task: task %>
-	<% end %>
+	<% if policy(@list).show? %>
+		<div class="headers-box">
+			<h1> <%= @list.title %> </h1>
+		</div>
+		<% @list.tasks.each do |task| %>
+			<%= render 'show', task: task %>
+		<% end %>
 
-	<%= link_to "Add/edit/delete tasks", new_list_task_path(@list) %>
+		<% if policy(@list).edit? %>
+			<%= link_to "Add/edit/delete tasks", new_list_task_path(@list) %>
+		<% end %>
+	<% end %>
 	<br>
 	<%= link_to "Back", root_path %>
 </div>
