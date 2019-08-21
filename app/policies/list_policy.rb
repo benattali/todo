@@ -2,7 +2,7 @@ class ListPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       # scope.all
-      scope.where(user: user).order(:title)
+      scope.where(user: user).order(:id)
     end
   end
 
