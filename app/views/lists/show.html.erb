@@ -1,16 +1,21 @@
 <div class="container-margins">
+	<div class="btn-back-margin">
+    <%= link_to lists_path, class: "btn-back" do %>
+      <i class="fas fa-chevron-circle-left"></i> Your lists
+    <% end %>
+  </div>
+
 	<% if policy(@list).show? %>
 		<div class="headers-box">
 			<h1> <%= @list.title %> </h1>
 		</div>
+
 		<% @list.tasks.each do |task| %>
 			<%= render 'show', task: task %>
 		<% end %>
 
 		<% if policy(@list).edit? %>
-			<%= link_to "Add/edit/delete tasks", new_list_task_path(@list) %>
+			<%= link_to "Add/edit/delete tasks", new_list_task_path(@list), class: "btn-edit" %>
 		<% end %>
 	<% end %>
-	<br>
-	<%= link_to "Back", root_path %>
 </div>

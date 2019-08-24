@@ -4,25 +4,21 @@
 		</div>
 
 		<% if !user_signed_in? %>
-			<div class="content">
-				<p> Looks like you're not signed in. </p>
-				<p class="last-line"> Once you sign in you can start creaing lists. </p>
-				<%= link_to "Sign in", new_user_session_path, class: "btn-blue" %>
-			</div>
+			<p> Looks like you're not signed in. </p>
+			<p class="last-line"> Once you sign in you can start creaing lists. </p>
+			<%= link_to "Sign in", new_user_session_path, class: "btn-blue" %>
 		<% elsif @lists.empty? %>
-			<div class="content">
-				<p> You don't have any to do lists. </p>
-				<p> If there is something you need to do you can create a new list </p>
-			</div>
+			<p> You don't have any to do lists. </p>
+			<p> If there is something you need to do you can create a new list </p>
 		<% else %>
-			<div class="content">
-				<%= render 'list_index', lists: @lists  %>
-			</div>
+			<%= render 'list_index', lists: @lists  %>
 		<% end %>		
 
 	<% if user_signed_in? %>
 		<% if policy(List).create? %>
-			<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+			<div class="btn-margin">
+				<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+			</div>
 		<% end %>
 	<% end %>
 

@@ -1,12 +1,37 @@
 .btn-blue {
 	padding: 15px 20px;
-	background-color: rgba(136, 201, 224, 0.8);
+	border: 2px solid rgba(136, 201, 224, 1);
 	border-radius: 4px;
 	color: $gray;
-	transition: 0.8s ease;
+	transition: 1s ease;
 	font-size: 20px;
 	&:hover {
 		background-color: rgba(136, 201, 224, 1);
-		color: rgb(10,10,10);
+	}
+}
+
+.btn-margin {
+	margin-top: 2rem;
+}
+
+.btn-back {
+	padding: 10px 15px;
+	border: 1px solid rgba(136, 201, 224, 0.8);
+	border-radius: 4px;
+	color: $gray;
+	transition: 1s ease;
+	font-size: 16px;
+	&:hover {
+		background-color: rgba(136, 201, 224, 1);
+	}
+}
+
+.btn-back-margin  {
+	margin-bottom: 2rem;
+}
+
+.btn-edit {
+	&:hover {
+		text-decoration: underline;
 	}
 }

@@ -1,14 +1,14 @@
 .container-margins {
 	margin: 0 10vw;
 	word-break: break-all;
-	min-height: 91vh;
-	padding-top: 8%;
+	min-height: 94vh;
+	padding-top: 2rem;
 }
 
 .headers-box {
 	height: auto;
 	background-color: rgba(136, 201, 224, 0.6);
-	margin-bottom: 5%;
+	margin-bottom: 1.5rem;
 	color: $gray;
 	font-size: 32px;
 	padding: 10px;
@@ -20,8 +20,4 @@
 h1 {
 	transform: rotate(-4deg);
 	margin: 0;
-}
-
-.content {
-	margin-bottom: 28px;
 }

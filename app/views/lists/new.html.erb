@@ -1,6 +1,13 @@
 <div class="container-margins">
+	<div class="btn-back-margin">
+		<%= link_to lists_path, class: "btn-back" do %>
+			<i class="fas fa-chevron-circle-left"></i> Your lists
+		<% end %>
+	</div>
+
 	<div class="headers-box">
 		<h1> New list </h1>
 	</div>
-		<%= render "form" %>
+
+	<%= render "form" %>
 </div>
