@@ -5,6 +5,7 @@
 	color: $gray;
 	transition: 1s ease;
 	font-size: 20px;
+	background: none;
 	&:hover {
 		background-color: rgba(136, 201, 224, 1);
 	}
@@ -21,6 +22,7 @@
 	color: $gray;
 	transition: 1s ease;
 	font-size: 16px;
+	background: none;
 	&:hover {
 		background-color: rgba(136, 201, 224, 1);
 	}
@@ -30,7 +32,7 @@
 	margin-bottom: 2rem;
 }
 
-.btn-edit {
+.btn-add {
 	&:hover {
 		text-decoration: underline;
 	}
