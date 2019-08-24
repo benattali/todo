@@ -6,7 +6,8 @@
 		<% if !user_signed_in? %>
 			<div class="content">
 				<p> Looks like you're not signed in. </p>
-				<p> Once you sign in you can start creaing lists. </p>
+				<p class="last-line"> Once you sign in you can start creaing lists. </p>
+				<%= link_to "Sign in", new_user_session_path, class: "btn-blue" %>
 			</div>
 		<% elsif @lists.empty? %>
 			<div class="content">
