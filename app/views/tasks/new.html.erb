@@ -1,11 +1,19 @@
-<%= simple_form_for @list do |f| %>
-	<div id='tasks'>
-    <%= f.simple_fields_for :tasks do |task| %>
-      <%= render 'task_fields', :f => task %>
+<div class="container-margins">
+	<div class="btn-back-margin">
+    <%= link_to list_path(@list), class: "btn-back" do %>
+      <i class="fas fa-chevron-circle-left"></i> <%= @list.title %>
     <% end %>
-   	<div class='links'>
-   		<%= link_to_add_association 'add task', f, :tasks %>
-   	</div>
   </div>
-  <%= f.submit 'Save' %>
-<% end %>
+
+	<%= simple_form_for @list do |f| %>
+		<div id='tasks'>
+	    <%= f.simple_fields_for :tasks do |task| %>
+	      <%= render 'task_fields', :f => task %>
+	    <% end %>
+	   	<div class='links'>
+	   		<%= link_to_add_association 'add task', f, :tasks %>
+	   	</div>
+	  </div>
+	  <%= f.submit 'Save' %>
+	<% end %>
+</div>
