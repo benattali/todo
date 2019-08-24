@@ -1,4 +1,5 @@
 <div class='nested-fields'>
-    <%= f.input :description %>
-    <%= link_to_remove_association "remove task", f %>
+    <%= f.input :description,
+    						input_html: { class: "input-style" } %>
+    <%= link_to_remove_association "Remove task", f %>
 </div>

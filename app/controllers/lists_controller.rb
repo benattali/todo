@@ -17,12 +17,13 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.title.capitalize!
     authorize @list
     @list.user = current_user
     @tasks = []
     @allTasks = params[:list][:tasks_attributes].values
     @allTasks.each do |task|
-      @tasks << Task.new(description: task[:description], list: @list)
+      @tasks << Task.new(description: task[:description].capitalize, list: @list)
     end
     @list.tasks = @tasks
     if @list.save!
@@ -35,7 +36,7 @@ class ListsController < ApplicationController
   def edit
   end
 
-  def update
+  def update    
     if @list.update(list_params)
       redirect_to list_path(@list), notice: "#{@list.title} was successfully updated."
     else

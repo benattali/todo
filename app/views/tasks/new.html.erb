@@ -11,9 +11,9 @@
 	      <%= render 'task_fields', :f => task %>
 	    <% end %>
 	   	<div class='links'>
-	   		<%= link_to_add_association 'Add a task', f, :tasks, class: "btn-add" %>
+	   		<%= link_to_add_association 'Add a task', f, :tasks %>
 	   	</div>
 	  </div>
-	  <%= f.submit 'Save', class: "btn-blue" %>
+	  <%= f.submit 'Save', class: "btn-blue btn-block font-weight-bold" %>
 	<% end %>
 </div>
