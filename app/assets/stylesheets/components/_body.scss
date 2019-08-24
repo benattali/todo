@@ -17,8 +17,20 @@ a {
 	margin-bottom: 2rem;
 }
 
-#input-style {
+.input-style {
 	border: none;
 	border-bottom: 2px solid rgba(136, 201, 224, 1);
 	background: none;
+	&:focus {
+		border: none;
+		border-bottom: 2px solid rgba(136, 201, 224, 1);
+		background: none;
+	}
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
 }

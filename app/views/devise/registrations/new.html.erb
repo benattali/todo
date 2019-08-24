@@ -14,20 +14,26 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                  input_html: { autocomplete: "email", class: "input-style" },
+                  placeholder: "user@email.com" %>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: "input-style" },
+                  placeholder: "******" %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: "input-style" },
+                  placeholder: "******" %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn-blue btn-block" %>
+      <%= f.button :submit, "Sign up", class: "btn-blue btn-block font-weight-bold" %>
     </div>
   <% end %>
 
+<div class="mt-4">
+    <p class="mb-1 text-center"> Already a member? 👇</p>
   <%= render "devise/shared/links" %>
+</div>
 </div>
