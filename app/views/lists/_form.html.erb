@@ -2,14 +2,14 @@
   <%= f.input :title,
               input_html: { class: "input-style" },
               placeholder: "Groceries" %>
-  <h3>Tasks</h3>
+  <h3> <strong> Tasks </strong> </h3>
   <div id='tasks'>
     <%= f.simple_fields_for :tasks do |task| %>
       <%= render 'task_fields', :f => task %>
     <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'add task', f, :tasks %>
+    <div class='links mt-4 link-underline'>
+      <%= link_to_add_association 'Add a new task', f, :tasks %>
     </div>
   </div>
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', class: "mt-2 btn-blue btn-block font-weight-bold" %>
 <% end %>

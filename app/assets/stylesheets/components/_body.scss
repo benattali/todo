@@ -24,6 +24,7 @@ a {
 	&:focus {
 		border: 2px solid rgba(136, 201, 224, 1);
 		background: none;
+		font-weight: 700;
 	}
 }
 
@@ -32,4 +33,11 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
+}
+
+.link-underline {
+	font-size: 12px;
+	&:hover {
+		text-decoration: underline;
+	}
 }
