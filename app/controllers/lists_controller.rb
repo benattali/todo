@@ -36,7 +36,11 @@ class ListsController < ApplicationController
   def edit
   end
 
-  def update    
+  def update
+    @tasks = params[:list][:tasks_attributes].values
+    @tasks.each do |task|
+      task[:description].capitalize!
+    end
     if @list.update(list_params)
       redirect_to list_path(@list), notice: "#{@list.title} was successfully updated."
     else
