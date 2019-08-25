@@ -41,3 +41,10 @@ input:-webkit-autofill:active {
 		text-decoration: underline;
 	}
 }
+
+.link-underline-add {
+	font-size: 16px;
+	&:hover {
+		text-decoration: underline;
+	}
+}

@@ -10,7 +10,7 @@
 	    <%= f.simple_fields_for :tasks do |task| %>
 	      <%= render 'task_fields', :f => task %>
 	    <% end %>
-	   	<div class='links mt-4 link-underline'>
+	   	<div class='links mt-4 link-underline-add'>
 	   		<%= link_to_add_association 'Add a new task', f, :tasks %>
 	   	</div>
 	  </div>
