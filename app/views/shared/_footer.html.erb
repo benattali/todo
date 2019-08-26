@@ -1,27 +1,27 @@
-<footer class="footer-container">
-	<div class="row">
-		<div class="col-sm-12 col-md-6 col-lg-4">
-			<div class="d-flex justify-content-center mb-2 footer-links">
+<footer class="page-footer font-small special-color-dark footer-links footer-background">
+  <div class="container my-2">
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
 				<%= link_to "https://github.com/benattali", class: "footer-link", target: :_blank do  %>
 					<i class="fab fa-github"></i>
 				<% end %>
+      </li>
+      <li class="list-inline-item">
 				<%= link_to "https://www.linkedin.com/in/ben-attali", class: "mx-5 footer-link", target: :_blank do  %>
 					<i class="fab fa-linkedin"></i>
 				<% end %>
+      </li>
+      <li class="list-inline-item">
 				<%= link_to "https://www.instagram.com/benattali/", class: "footer-link", target: :_blank do  %>
 					<i class="fab fa-instagram"></i>
 				<% end %>
-			</div>
-	
-			<div class="d-flex justify-content-center">
-				<span> <i class="fas fa-copyright"></i> Ben Attali </span>
-				<span class="ml-2"> • </span>
-				<span class="mx-2"> 2019 </span>
-				<span class="mr-2"> • </span>
-				<span class="footer-links">
-					<%= link_to "benattali.com", "https://benattali.com", target: :_blank %>
-				</span>
-			</div>
-		</div>
-	</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer-copyright text-center mb-2">
+  	© Ben Attali • 
+  	2019 •
+    <%= link_to "benattali.com", "https://benattali.com", target: :_blank %>
+  </div>
 </footer>
