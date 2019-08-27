@@ -25,13 +25,11 @@
 .nav-email {
 	display: block;
   padding: 0.5rem 0;
-  text-shadow: -1px 0 $white, 0 1px $white, 1px 0 $white, 0 1px $white;	
+  text-shadow: -1.5px 0 $white, 0 1.5px $white, 1.5px 0 $white, 0 1.5px $white;	
   color: $black;
-  font-weight: 900;
 }
 
 .nav-word-border {
-	text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 1px $black;
+	text-shadow: -1.5px 0 $black, 0 1.5px $black, 1.5px 0 $black, 0 1.5px $black;
 	color: $yellow !important;
-	font-weight: 900;
 }

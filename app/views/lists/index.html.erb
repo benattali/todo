@@ -1,6 +1,6 @@
 <div class="container-margins">
 		<div class="headers-box">
-			<h1> To do lists </h1>
+			<h1> My To Do Lists </h1>
 		</div>
 
 		<% if !user_signed_in? %>
@@ -17,7 +17,7 @@
 	<% if user_signed_in? %>
 		<% if policy(List).create? %>
 			<div class="btn-margin">
-				<%= link_to "Create a list", new_list_path(@list), class: "btn-blue" %>
+				<%= link_to "Add a list", new_list_path(@list), class: "btn-blue mb-2" %>
 			</div>
 		<% end %>
 	<% end %>
