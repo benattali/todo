@@ -2,7 +2,7 @@
 	<% if task.status? %>
 		<h5> 
 			<span class="highlight">
-				[✔] <del> <%= task.description %> </del>
+				[<span class="checkmark">✔</span>] <del> <%= task.description %> </del>
 				<% if policy(@list).undone? %>
 					<%= render 'undone', task: task %>
 				<% end %>
