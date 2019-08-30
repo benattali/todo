@@ -1,7 +1,6 @@
 .navbar {
 	min-height: 6vh;
-	background-image: linear-gradient(360deg, rgb(248, 235, 168) 0%, rgba(243,182,201,0) 20%, rgba(243,182,201,0) 80%), url("https://res.cloudinary.com/dyseqqsmw/image/upload/v1566918585/xvmq7liprtr1fh7ylxxe.jpg");
-	background-size: contain;
+	border-bottom: 2px solid $gray;
 }
 
 .navbar-link a {
@@ -25,14 +24,18 @@
 .nav-email {
 	display: block;
   padding: 0.5rem 0;
-  text-shadow: -1.5px 0 $white, 0 1.5px $white, 1.5px 0 $white, 0 1.5px $white;	
-  color: $black;
+  color: $gray;
+  font-size: 16px;
 }
 
-.nav-word-border {
-	text-shadow: -1.5px 0 $black, 0 1.5px $black, 1.5px 0 $black, 0 1.5px $black;
-	color: $yellow !important;
+.nav-lists-border {
+	color: $gray !important;
 	font-size: 22px;
+}
+
+.nav-signup-border {
+	color: $gray !important;
+	font-size: 16px;
 }
 
 .navbar-toggler {
