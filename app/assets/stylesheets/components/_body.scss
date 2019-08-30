@@ -5,8 +5,13 @@ body {
 	color: rgb(59,59,59);
 }
 
+p {
+	font-size: 20px;
+}
+
 a {
 	color: rgb(59,59,59);
+	font-family: "Oswald";
 	&:hover {
 		text-decoration: none;
 		color: rgb(59,59,59);
