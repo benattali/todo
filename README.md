@@ -7,4 +7,6 @@
 #### To run locally (assuming you have ruby and rails installed):
 * Run "bundle install"
 * Run "yarn install --check-files"
+* Run "rails db:create db:migrate"
+* (OPTIONAL) you can run "rails db:seed" to get some pre-made lists and tasks
 * Run "rails s"
