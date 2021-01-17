@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 
   def default_url_options
-    { host: ENV["DOMAIN"] || "localhost:3000" }
+    { host: "https://benstodolist.herokuapp.com/" || "localhost:3000" }
   end
   
   private
